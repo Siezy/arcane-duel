@@ -61,32 +61,36 @@ function wireButtons() {
 
 function stageTable(s) {
   s.phase = 'play';
-  s.turn = 4;
+  s.turn = 7;
   s.active = 'player';
-  s.player.maxMana = 4;
-  s.player.mana = 3;
-  s.enemy.maxMana = 4;
+  s.player.maxMana = 7;
+  s.player.mana = 6;
+  s.enemy.maxMana = 7;
   s.enemy.mana = 0;
-  s.player.life = 16;
-  s.enemy.life = 13;
+  s.player.life = 9;
+  s.enemy.life = 7;
   s.player.hand = [];
   s.enemy.hand = [];
+  setupGiveCard(s, s.player, 'meteor');
   setupGiveCard(s, s.player, 'storm-drake');
   setupGiveCard(s, s.player, 'firebolt');
-  setupGiveCard(s, s.player, 'moon-archer');
+  setupGiveCard(s, s.player, 'tide-serpent');
   setupGiveCard(s, s.player, 'healing-light');
   setupGiveCard(s, s.enemy, 'ember-imp');
   setupGiveCard(s, s.enemy, 'rune-knight');
   setupGiveCard(s, s.enemy, 'frost-shard');
-  const golem = setupSummon(s, s.enemy, 'stone-golem');
+  setupSummon(s, s.player, 'flame-phoenix');
+  const golem = setupSummon(s, s.player, 'stone-golem');
   golem.health = 4;
-  setupSummon(s, s.enemy, 'shadow-assassin');
-  const knight = setupSummon(s, s.player, 'rune-knight');
-  knight.health = 2;
-  setupSummon(s, s.player, 'verdant-dryad');
-  logLine(s, 'Malachar plays Stone Golem.');
-  logLine(s, 'Your Rune Knight clashes with Shadow Assassin.');
-  logLine(s, 'Turn 4 — your move.');
+  setupSummon(s, s.player, 'moon-archer');
+  setupSummon(s, s.enemy, 'void-reaper');
+  const sentinel = setupSummon(s, s.enemy, 'iron-sentinel');
+  sentinel.health = 3;
+  setupSummon(s, s.enemy, 'shadow-assassin', false);
+  logLine(s, 'Malachar summons the Void Reaper.');
+  logLine(s, 'Your Flame Phoenix scorches his Iron Sentinel.');
+  logLine(s, 'Your Stone Golem holds the line, battered but standing.');
+  logLine(s, 'Turn 7 — your move.');
 }
 
 function stageEnd(s, won) {
@@ -248,8 +252,8 @@ function hintText() {
 }
 
 function renderPortraits() {
-  $('enemy-life').textContent = state.enemy.life;
-  $('player-life').textContent = state.player.life;
+  $('enemy-life').textContent = Math.max(0, state.enemy.life);
+  $('player-life').textContent = Math.max(0, state.player.life);
   $('player-mana').textContent = `${state.player.mana}/${state.player.maxMana}`;
   $('enemy-mana').textContent = `${state.enemy.mana}/${state.enemy.maxMana}`;
   $('player-deck').textContent = state.player.deck.length;
