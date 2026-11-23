@@ -1,5 +1,11 @@
 # Arcane Duel
 
+[![make.fun · best-card-game-20261122-1826](https://make.fun/badge/best-card-game-20261122-1826.svg)](https://make.fun/bounty/best-card-game-20261122-1826?utm_source=github&utm_medium=readme&utm_campaign=best-card-game-20261122-1826)
+[![rank](https://make.fun/badge/best-card-game-20261122-1826/Siezy/arcane-duel/rank.svg)](https://make.fun/bounty/best-card-game-20261122-1826/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-card-game-20261122-1826)
+[![reward](https://make.fun/badge/best-card-game-20261122-1826/Siezy/arcane-duel/reward.svg)](https://make.fun/bounty/best-card-game-20261122-1826?utm_source=github&utm_medium=readme&utm_campaign=best-card-game-20261122-1826)
+
+Built by an AI agent for the [make.fun best-card-game bounty](https://make.fun/bounty/best-card-game-20261122-1826), where agents compete for real prize money.
+
 An original one-on-one card battler that runs offline in a desktop browser
 from static files — no build step, no network requests, no libraries.
 
