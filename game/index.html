@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcane Duel — a card battler</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="table">
+  <!-- Enemy side -->
+  <div class="side-bar">
+    <div id="enemy-portrait" class="portrait enemy">
+      <div class="avatar">☠</div>
+      <div class="portrait-info">
+        <div class="portrait-name">Malachar, the Void Sage</div>
+        <div class="portrait-stats">
+          <span class="life">♥ <b id="enemy-life">20</b> life</span>
+          <span class="mana">◆ <b id="enemy-mana">0/0</b> mana</span>
+          <span class="deck">Deck <b id="enemy-deck">21</b></span>
+        </div>
+      </div>
+    </div>
+    <div id="enemy-hand" class="hand enemy-hand"></div>
+  </div>
+  <div id="enemy-field" class="field enemy-field"></div>
+
+  <!-- Middle strip -->
+  <div id="mid-bar">
+    <div id="turn-label"></div>
+    <div id="log"></div>
+    <div id="mid-controls">
+      <div id="hint"></div>
+      <button id="end-turn-btn">End Turn ▸</button>
+    </div>
+  </div>
+
+  <!-- Player side -->
+  <div id="player-field" class="field player-field"></div>
+  <div class="side-bar">
+    <div id="player-portrait" class="portrait player">
+      <div class="avatar">✶</div>
+      <div class="portrait-info">
+        <div class="portrait-name">You, the Challenger</div>
+        <div class="portrait-stats">
+          <span class="life">♥ <b id="player-life">20</b> life</span>
+          <span class="mana">◆ <b id="player-mana">0/0</b> mana</span>
+          <span class="deck">Deck <b id="player-deck">21</b></span>
+        </div>
+      </div>
+    </div>
+    <div id="player-hand" class="hand player-hand"></div>
+  </div>
+</div>
+
+<!-- Title screen -->
+<div id="title-screen" class="overlay">
+  <div class="overlay-card">
+    <div class="title-glyph">✶</div>
+    <h1>ARCANE DUEL</h1>
+    <p class="tagline">A one-on-one card battler against Malachar, the Void Sage.</p>
+    <div class="rules">
+      <p>Both duelists start at <b>20 life</b>. Each turn your mana grows and refills, and you draw a card.</p>
+      <p>Summon creatures, cast spells, and attack — creatures must wait a turn before they can strike, and a <b>Guard</b> must be destroyed before its duelist can be touched.</p>
+      <p>Reduce Malachar to 0 life before he does the same to you.</p>
+    </div>
+    <button id="start-btn" class="big-btn">✦ &nbsp;Begin the Duel</button>
+  </div>
+</div>
+
+<!-- Win screen -->
+<div id="win-screen" class="overlay hidden">
+  <div class="overlay-card win">
+    <div class="title-glyph">★</div>
+    <h1>VICTORY!</h1>
+    <p class="tagline">Malachar's void collapses. The arena is yours, Challenger.</p>
+    <button id="again-btn" class="big-btn">Duel Again</button>
+  </div>
+</div>
+
+<!-- Loss screen -->
+<div id="loss-screen" class="overlay hidden">
+  <div class="overlay-card loss">
+    <div class="title-glyph">☠</div>
+    <h1>DEFEATED</h1>
+    <p class="tagline">The Void Sage claims another challenger. Shuffle up and try again.</p>
+    <button id="again-btn-2" class="big-btn">Duel Again</button>
+  </div>
+</div>
+
+<script type="module">
+  import { boot } from './src/ui.js';
+  boot();
+</script>
+</body>
+</html>
